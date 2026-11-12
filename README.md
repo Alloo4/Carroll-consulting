@@ -1,0 +1,3 @@
+﻿# CARROLL CONSULTING
+
+Project workspace for CARROLL CONSULTING.
