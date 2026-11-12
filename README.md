@@ -7,12 +7,14 @@ Website for **Carroll Consulting**, a strategic people advisory firm for growing
 | File | Page | Purpose |
 | --- | --- | --- |
 | `index.html` | Home | Hero, introduction, three pillars, "Start with the problem," founder section, approach, results, insights teaser, call to action |
-| `pages/services.html` | Services | People, Risk and Strategy services, engagement models, legal note |
-| `pages/about.html` | About | Founder bio and credentials, philosophy, "Beyond HR" |
-| `pages/insights.html` | Insights | "The Carroll Consulting Brief" featured and archive article listing |
-| `pages/contact.html` | Contact | Advisory consultation request form and what to expect |
+| `services.html` | Services | People, Risk and Strategy services, engagement models, legal note |
+| `about.html` | About | Founder bio and credentials, philosophy, "Beyond HR" |
+| `insights.html` | Insights | "The Carroll Consulting Brief" featured and archive article listing |
+| `contact.html` | Contact | Advisory consultation request form and what to expect |
 
-Shared styles live in `css/styles.css`. Every page links to it, so update colors and typography there.
+Shared styles live in `styles.css`. Every page links to it, so update colors and typography there.
+
+Shared behaviour lives in `js/site.js` (loaded with `defer` on every page): the mobile menu toggle and the contact form's sending/success/error states. The site works without JavaScript except for the mobile menu; footer links remain available.
 
 ## Running locally
 
@@ -26,7 +28,7 @@ Fonts load from Google Fonts (Inter), so an internet connection is needed for th
 
 ## Design
 
-- **Palette:** navy `#13213f`, teal `#1f6e6a`, light teal `#7fd0c9`, off-white `#f6f7f9`. Defined as CSS variables in `css/styles.css`.
+- **Palette:** navy `#13213f`, teal `#1f6e6a`, light teal `#7fd0c9`, off-white `#f6f7f9`. Defined as CSS variables in `styles.css`.
 - **Layout:** responsive, with breakpoints at 960px and 600px. Phone width uses a 16px side gutter.
 - **Tone:** practical, executive-level, and free of HR jargon, following the approved website copy.
 
@@ -34,13 +36,14 @@ Fonts load from Google Fonts (Inter), so an internet connection is needed for th
 
 These need content or decisions before launch:
 
-- [ ] Hero photo on the home page (placeholder block)
-- [ ] Founder photo of Imani Carroll on the home and About pages (placeholder blocks)
-- [ ] Contact email address (currently `[add email]` in the footer and on the Contact page)
-- [ ] Contact form backend. Currently the form has no submit handler and does not send anything.
+- [ ] Hero photo on the home page. Replace the `.hero-media` placeholder with an `<img>` that has `width` and `height` attributes so the layout does not shift while it loads.
+- [ ] Founder photo of Imani Carroll on the home and About pages (placeholder blocks showing "IC"); same `width`/`height` note applies.
+- [ ] Contact email address (currently `[add email]` in the footer and on the Contact page). The form's "not connected yet" and error messages tell visitors to email instead, so this matters once the site is live.
+- [ ] Contact form backend. In `pages/contact.html`, set `data-endpoint` (and `action`) on the form to a form-handling service URL (Formspree, Basin, Netlify Forms, etc.). Until it is set, submitting shows a notice that the form is not connected rather than silently reloading.
 - [ ] Booking tool link for "Book an Advisory Consultation" buttons (currently `pages/contact.html`)
-- [ ] Real URLs for the insight articles (currently `#`)
-- [ ] Logo. The mark is a plain "C" until a logo file is provided.
+- [ ] Real URLs for the insight articles. Cards currently show "Coming soon"; swap each `<span class="link link-soon">` back to `<a class="link" href="...">Read the insight →</a>` as articles are published.
+- [ ] Logo. The mark is a plain "C" until a logo file is provided. The favicon is an inline SVG of the same mark in each page's `<head>`.
+- [ ] Final domain. Once known, add `<link rel="canonical">`, `og:url` and `og:image` to each page and `url` to the JSON-LD block in `index.html`.
 
 ## Legal note
 

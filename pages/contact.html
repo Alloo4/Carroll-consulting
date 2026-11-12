@@ -5,30 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact | Carroll Consulting</title>
 <meta name="description" content="Book an advisory consultation with Carroll Consulting to talk about your people strategy, workplace risk, or HR infrastructure.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carroll Consulting">
+<meta property="og:title" content="Contact | Carroll Consulting">
+<meta property="og:description" content="Book an advisory consultation with Carroll Consulting to talk about your people strategy, workplace risk, or HR infrastructure.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#13213f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313213f'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='38' font-weight='800' fill='%23fff'%3EC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/styles.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<script src="../js/site.js" defer></script>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <header class="nav">
   <div class="wrap">
-    <a href="../index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
-    <nav class="nav-links" aria-label="Primary">
+    <a href="../index.html" class="logo" aria-label="Carroll Consulting home"><span class="logo-mark">C</span><span class="logo-text">Carroll Consulting</span></a>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
       <a href="insights.html">Insights</a>
-      <a href="contact.html" class="is-active">Contact</a>
+      <a href="contact.html" class="is-active" aria-current="page">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="contact.html" class="btn btn-ghost">Contact</a>
       <a href="#book" class="btn btn-primary">Book a Consultation</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <!-- HERO -->
 <section class="page-hero">
@@ -41,33 +56,35 @@
 </section>
 
 <!-- FORM + SIDE -->
-<section style="padding-top:0" id="book">
+<section class="pt-0" id="book">
   <div class="wrap contact-grid">
 
     <div class="form-card">
       <h2>Book an Advisory Consultation</h2>
       <p>Tell us a little about your organization and what you’re navigating. We’ll use the initial conversation to understand your needs, determine where Carroll Consulting can add value, and recommend an appropriate next step.</p>
 
-      <form action="#" method="post">
+      <!-- Form backend: set data-endpoint to your form service URL (e.g. Formspree, Basin, Netlify Forms) and action to the same URL. Until then, submissions show a "not connected yet" notice instead of silently reloading. -->
+      <form action="#" method="post" data-contact-form data-endpoint="">
+        <p class="form-hint">Required fields are marked with an asterisk.</p>
         <div class="form-grid">
           <div class="field">
-            <label for="first">First Name</label>
+            <label for="first">First Name <span class="req" aria-hidden="true">*</span></label>
             <input id="first" name="first_name" type="text" autocomplete="given-name" required>
           </div>
           <div class="field">
-            <label for="last">Last Name</label>
+            <label for="last">Last Name <span class="req" aria-hidden="true">*</span></label>
             <input id="last" name="last_name" type="text" autocomplete="family-name" required>
           </div>
           <div class="field">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
+            <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
           </div>
           <div class="field">
-            <label for="company">Company</label>
+            <label for="company">Company <span class="req" aria-hidden="true">*</span></label>
             <input id="company" name="company" type="text" autocomplete="organization" required>
           </div>
           <div class="field full">
-            <label for="size">Company Size</label>
+            <label for="size">Company Size <span class="req" aria-hidden="true">*</span></label>
             <select id="size" name="company_size" required>
               <option value="">Select one</option>
               <option>1–10 employees</option>
@@ -78,8 +95,8 @@
               <option>250+ employees</option>
             </select>
           </div>
-          <div class="field full">
-            <label>What can we help you with?</label>
+          <fieldset class="field full">
+            <legend>What can we help you with? <span class="optional">(optional)</span></legend>
             <div class="checks">
               <label><input type="checkbox" name="topics" value="Fractional HR Leadership"> Fractional HR Leadership</label>
               <label><input type="checkbox" name="topics" value="People Strategy"> People Strategy</label>
@@ -94,13 +111,13 @@
               <label><input type="checkbox" name="topics" value="HR Infrastructure"> HR Infrastructure</label>
               <label><input type="checkbox" name="topics" value="Other"> Other</label>
             </div>
-          </div>
+          </fieldset>
           <div class="field full">
-            <label for="message">Tell us about your organization or challenge.</label>
+            <label for="message">Tell us about your organization or challenge. <span class="optional">(optional)</span></label>
             <textarea id="message" name="message"></textarea>
           </div>
           <div class="field full">
-            <label for="source">How did you hear about Carroll Consulting?</label>
+            <label for="source">How did you hear about Carroll Consulting? <span class="optional">(optional)</span></label>
             <select id="source" name="source">
               <option value="">Select one</option>
               <option>LinkedIn</option>
@@ -113,9 +130,10 @@
           </div>
         </div>
         <div class="form-submit">
-          <button type="submit" class="btn btn-primary">Request a Consultation</button>
+          <button type="submit" class="btn btn-primary" data-submit>Request a Consultation</button>
           <small>We’ll only use your details to respond to your request.</small>
         </div>
+        <p class="form-status" data-form-status role="status" aria-live="polite" hidden></p>
       </form>
     </div>
 
@@ -175,13 +193,13 @@
         <a href="../index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
         <p>PEOPLE × RISK × STRATEGY. Strategic people advisory for growing companies.</p>
       </div>
-      <div class="foot-col">
+      <nav class="foot-col" aria-label="Footer">
         <h4>Company</h4>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="insights.html">Insights</a>
         <a href="contact.html">Contact</a>
-      </div>
+      </nav>
       <div class="foot-col">
         <h4>Contact</h4>
         <a href="contact.html">Book an Advisory Consultation</a>

@@ -5,30 +5,60 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Carroll Consulting | People. Risk. Strategy.</title>
 <meta name="description" content="Carroll Consulting helps growing organizations make smarter people decisions, strengthen their HR infrastructure, and reduce workplace risk.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Carroll Consulting">
+<meta property="og:title" content="Carroll Consulting | People. Risk. Strategy.">
+<meta property="og:description" content="Carroll Consulting helps growing organizations make smarter people decisions, strengthen their HR infrastructure, and reduce workplace risk.">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#13213f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313213f'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='38' font-weight='800' fill='%23fff'%3EC%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+<script src="js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Carroll Consulting",
+  "slogan": "People. Risk. Strategy.",
+  "description": "Carroll Consulting helps growing organizations make smarter people decisions, strengthen their HR infrastructure, and reduce workplace risk.",
+  "founder": {
+    "@type": "Person",
+    "name": "Imani Carroll",
+    "jobTitle": "Founder & Principal Consultant"
+  },
+  "knowsAbout": ["Fractional HR leadership", "People strategy", "Workplace risk", "HR compliance", "Workplace investigations", "Organizational design", "Workforce planning"]
+}
+</script>
 </head>
-<body>
+<body class="home-page">
+
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <header class="nav">
   <div class="wrap">
-    <a href="index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
-    <nav class="nav-links" aria-label="Primary">
+    <a href="index.html" class="logo" aria-label="Carroll Consulting home"><span class="logo-mark">C</span><span class="logo-text">Carroll Consulting</span></a>
+    <nav class="nav-links" id="primary-nav" aria-label="Primary">
       <a href="pages/services.html">Services</a>
       <a href="pages/about.html">About</a>
       <a href="pages/insights.html">Insights</a>
       <a href="pages/contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="pages/contact.html" class="btn btn-ghost">Contact</a>
       <a href="pages/contact.html" class="btn btn-primary">Book a Consultation</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<main>
+<main id="main">
 
 <!-- HERO -->
 <section class="hero">
@@ -38,17 +68,23 @@
       <h1>People. Risk. Strategy.</h1>
       <p class="tagline">Strategic People Advisory for Growing Companies</p>
       <p class="lead">Carroll Consulting helps growing organizations make smarter people decisions, strengthen their HR infrastructure, and reduce workplace risk.</p>
-      <p class="lead" style="margin-top:-20px">We bring executive-level HR expertise to companies that need strategic guidance without immediately building a large internal HR leadership function.</p>
+      <p class="lead">We bring executive-level HR expertise to companies that need strategic guidance without immediately building a large internal HR leadership function.</p>
       <div class="hero-actions">
         <a href="pages/contact.html" class="btn btn-primary">Book an Advisory Consultation</a>
         <a href="pages/services.html" class="btn btn-ghost">Explore Our Services →</a>
       </div>
+      <ul class="trust-strip" aria-label="Founder credentials">
+        <li>11+ years of executive HR leadership</li>
+        <li>SPHR certified</li>
+        <li>Former Chief People Officer</li>
+        <li>Forbes HR Council member</li>
+      </ul>
     </div>
-    <div class="hero-media" role="img" aria-label="Hero photo placeholder">
-      <div class="placeholder-note">Hero photo goes here. Replace this block with an &lt;img&gt; tag.</div>
-      <div class="hero-badge">
-        <strong>11+ years of executive HR leadership</strong>
-        <span>SPHR certified · Founder Imani Carroll</span>
+    <!-- Replace this placeholder with <img src="..." alt="..." width="..." height="..."> when the hero photo is ready. Keep width/height so the layout does not shift. -->
+    <div class="hero-media" aria-hidden="true">
+      <div class="placeholder-mark">
+        <span class="logo-mark logo-mark-lg">C</span>
+        <span class="placeholder-words">People × Risk × Strategy</span>
       </div>
     </div>
   </div>
@@ -73,7 +109,7 @@
 <!-- THREE PILLARS -->
 <section class="pillars">
   <div class="wrap">
-    <p class="eyebrow" style="color:var(--teal-light)">Our Three Pillars</p>
+    <p class="eyebrow">Our Services</p>
     <h2>People. Risk. Strategy.</h2>
     <div class="pillar-grid">
 
@@ -123,6 +159,9 @@
         <a href="pages/services.html#strategy" class="link">Explore People Strategy →</a>
       </article>
 
+    </div>
+    <div class="pillars-cta">
+      <a href="pages/services.html" class="btn btn-outline-light">View All Services →</a>
     </div>
   </div>
 </section>
@@ -181,8 +220,9 @@
 <!-- WHY CARROLL -->
 <section class="why">
   <div class="wrap why-grid">
-    <div class="why-photo" role="img" aria-label="Founder photo placeholder">
-      Founder photo (Imani Carroll) goes here.
+    <!-- Replace with <img src="..." alt="Imani Carroll, Founder of Carroll Consulting" width="..." height="..."> when the founder photo is ready. -->
+    <div class="why-photo" aria-hidden="true">
+      <span class="placeholder-initials">IC</span>
     </div>
     <div>
       <p class="eyebrow">Why Carroll Consulting?</p>
@@ -192,7 +232,7 @@
         <p>Throughout her career, Imani has partnered with executive leaders and organizations navigating growth, transformation, organizational change, compliance, talent strategy, and complex workplace challenges.</p>
         <p>Her experience spans both high-growth companies and established organizations, including executive HR leadership roles supporting global teams and go-to-market organizations.</p>
       </div>
-      <div class="stats" style="margin-top:36px">
+      <div class="stats">
         <div class="stat"><div class="big">11+ years</div><p class="label">Progressive HR leadership experience</p></div>
         <div class="stat"><div class="big">SPHR</div><p class="label">Senior-level HR certification</p></div>
         <div class="stat"><div class="big">Global</div><p class="label">Experience</p><p>HR strategy and business partnership across international organizations</p></div>
@@ -237,7 +277,7 @@
 </section>
 
 <!-- INSIGHTS TEASER -->
-<section style="padding-top:0">
+<section class="pt-0">
   <div class="wrap">
     <div class="insights-box">
       <div>
@@ -280,13 +320,13 @@
         <a href="index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
         <p>PEOPLE × RISK × STRATEGY. Strategic people advisory for growing companies.</p>
       </div>
-      <div class="foot-col">
+      <nav class="foot-col" aria-label="Footer">
         <h4>Company</h4>
         <a href="pages/services.html">Services</a>
         <a href="pages/about.html">About</a>
         <a href="pages/insights.html">Insights</a>
         <a href="pages/contact.html">Contact</a>
-      </div>
+      </nav>
       <div class="foot-col">
         <h4>Contact</h4>
         <a href="pages/contact.html">Book an Advisory Consultation</a>
