@@ -8,263 +8,27 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #13213f;
-    --navy-2: #1c2f57;
-    --teal: #1f6e6a;
-    --teal-soft: #e5f1f0;
-    --ink: #151a2c;
-    --muted: #5b6478;
-    --bg: #f6f7f9;
-    --card: #ffffff;
-    --line: #e2e6ee;
-    --radius: 16px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    color: var(--ink);
-    background: #fff;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  a { color: inherit; text-decoration: none; }
-  img { max-width: 100%; display: block; }
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-  section { padding: 96px 0; }
-  .eyebrow {
-    font-size: 12px; font-weight: 700; letter-spacing: .14em;
-    text-transform: uppercase; color: var(--teal); margin-bottom: 14px;
-  }
-  h1, h2, h3 { line-height: 1.12; letter-spacing: -0.02em; }
-  h1 { font-size: clamp(40px, 6vw, 68px); font-weight: 800; }
-  h2 { font-size: clamp(30px, 4vw, 44px); font-weight: 800; }
-  h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
-  .lead { font-size: 18px; color: var(--muted); max-width: 620px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 15px;
-    border: 1.5px solid transparent; transition: transform .15s, background .2s, color .2s;
-    cursor: pointer; white-space: nowrap;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn-primary { background: var(--navy); color: #fff; }
-  .btn-primary:hover { background: var(--navy-2); }
-  .btn-ghost { border-color: var(--line); color: var(--ink); background: #fff; }
-  .btn-ghost:hover { border-color: var(--navy); }
-  .btn-light { background: #fff; color: var(--navy); }
-  .btn-outline-light { border-color: rgba(255,255,255,.35); color: #fff; }
-  .btn-outline-light:hover { border-color: #fff; }
-  .link { font-weight: 600; color: var(--teal); font-size: 15px; display: inline-flex; gap: 6px; }
-  .link:hover { text-decoration: underline; }
-
-  /* NAV */
-  .nav {
-    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92);
-    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
-  }
-  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; letter-spacing: -0.01em; }
-  .logo-mark {
-    width: 30px; height: 30px; border-radius: 8px; background: var(--navy);
-    display: grid; place-items: center; color: #fff; font-size: 14px; font-weight: 800;
-  }
-  .nav-links { display: flex; gap: 32px; font-size: 15px; font-weight: 500; color: var(--muted); }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-cta { display: flex; align-items: center; gap: 12px; }
-  .nav-cta .btn { padding: 10px 20px; font-size: 14px; }
-
-  /* HERO */
-  .hero { padding: 88px 0 96px; background: linear-gradient(180deg, #fff 0%, var(--bg) 100%); }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
-  .hero h1 { margin-bottom: 12px; }
-  .hero .tagline { font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 22px; }
-  .hero .lead { margin-bottom: 36px; }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-  .hero-media {
-    position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 4 / 5;
-    background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
-    display: grid; place-items: center; color: rgba(255,255,255,.8); text-align: center; padding: 24px;
-  }
-  .hero-media .placeholder-note { font-size: 14px; max-width: 240px; }
-  .hero-badge {
-    position: absolute; left: 20px; bottom: 20px; right: 20px; background: #fff;
-    border-radius: 14px; padding: 16px 18px; box-shadow: 0 12px 30px rgba(19,33,63,.18);
-    font-size: 14px; color: var(--ink);
-  }
-  .hero-badge strong { display: block; font-size: 15px; }
-  .hero-badge span { color: var(--muted); font-size: 13px; }
-
-  /* INTRO */
-  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-  .intro-grid h2 { margin-bottom: 0; }
-  .intro-grid p + p { margin-top: 18px; }
-  .intro-grid .body { color: var(--muted); font-size: 17px; }
-  .intro-grid .body .strong { color: var(--ink); font-weight: 600; font-size: 19px; }
-
-  /* PILLARS (dark) */
-  .pillars { background: var(--navy); color: #fff; }
-  .pillars h2 { margin-bottom: 48px; }
-  .pillar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .pillar {
-    background: var(--navy-2); border: 1px solid rgba(255,255,255,.08);
-    border-radius: var(--radius); padding: 36px 32px; display: flex; flex-direction: column;
-  }
-  .pillar .num { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: #7fd0c9; margin-bottom: 18px; text-transform: uppercase; }
-  .pillar h3 { font-size: 24px; margin-bottom: 14px; }
-  .pillar p { color: rgba(255,255,255,.72); font-size: 15px; margin-bottom: 24px; }
-  .pillar ul { list-style: none; margin-bottom: 28px; display: grid; gap: 8px; }
-  .pillar li { font-size: 14px; color: rgba(255,255,255,.88); padding-left: 16px; position: relative; }
-  .pillar li::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: #7fd0c9; }
-  .pillar .link { color: #7fd0c9; margin-top: auto; }
-
-  /* PROBLEMS */
-  .problems-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
-  .problems-head p { color: var(--muted); max-width: 460px; font-size: 17px; }
-  .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .problem {
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 32px; display: flex; flex-direction: column; transition: border-color .2s, transform .2s;
-  }
-  .problem:hover { border-color: var(--teal); transform: translateY(-3px); }
-  .problem q { font-size: 19px; font-weight: 700; color: var(--navy); quotes: "\201C" "\201D"; line-height: 1.35; margin-bottom: 14px; display: block; }
-  .problem p { color: var(--muted); font-size: 15px; margin-bottom: 20px; flex: 1; }
-  .problem.highlight { background: var(--teal); border-color: var(--teal); color: #fff; }
-  .problem.highlight q, .problem.highlight p { color: #fff; }
-  .problem.highlight p { opacity: .9; }
-  .problem.highlight .link { color: #fff; }
-
-  /* WHY */
-  .why { background: var(--bg); }
-  .why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
-  .why-photo {
-    border-radius: 24px; background: linear-gradient(160deg, #d9e1ec 0%, #c3cfdf 100%);
-    aspect-ratio: 4 / 5; display: grid; place-items: center; color: #55627a; text-align: center; padding: 24px;
-    font-size: 14px;
-  }
-  .why h2 { margin-bottom: 22px; }
-  .why .body { color: var(--muted); font-size: 17px; margin-bottom: 36px; }
-  .why .body p + p { margin-top: 14px; }
-  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .stat { background: #fff; border-radius: var(--radius); padding: 24px; border: 1px solid var(--line); }
-  .stat .big { font-size: 32px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 8px; }
-  .stat .label { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); margin-bottom: 6px; }
-  .stat p { font-size: 14px; color: var(--muted); }
-
-  /* APPROACH */
-  .approach-head { margin-bottom: 56px; }
-  .approach-head h2 { margin-top: 0; }
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--navy); }
-  .step { padding: 32px 28px 0 0; }
-  .step .n { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 18px; letter-spacing: .08em; }
-  .step h3 { font-size: 22px; margin-bottom: 12px; }
-  .step p { color: var(--muted); font-size: 15px; }
-
-  /* RESULTS */
-  .results { background: var(--bg); }
-  .results-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 72px; align-items: start; }
-  .results h2 { margin-bottom: 20px; }
-  .results .lead { margin-bottom: 0; }
-  .result-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .result {
-    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
-  }
-  .result h3 { font-size: 17px; margin-bottom: 8px; color: var(--navy); }
-  .result p { font-size: 14px; color: var(--muted); }
-  .result.wide { grid-column: 1 / -1; }
-
-  /* INSIGHTS */
-  .insights-box {
-    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
-    border: 1px solid var(--line); border-radius: 24px; padding: 56px; background: #fff;
-  }
-  .insights-box h2 { font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 14px; }
-  .insights-box p { color: var(--muted); font-size: 17px; max-width: 640px; }
-
-  /* CTA */
-  .cta { padding: 0 0 96px; background: var(--bg); }
-  .cta-box {
-    background: var(--navy); color: #fff; border-radius: 28px; padding: 88px 64px;
-    display: grid; grid-template-columns: 1.2fr .8fr; gap: 56px; align-items: center;
-  }
-  .cta-box .eyebrow { color: #7fd0c9; }
-  .cta-box h2 { color: #fff; margin-bottom: 18px; }
-  .cta-box p { color: rgba(255,255,255,.75); font-size: 17px; margin-bottom: 32px; max-width: 540px; }
-  .cta-side {
-    background: var(--navy-2); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius);
-    padding: 32px; font-size: 15px; color: rgba(255,255,255,.85);
-  }
-  .cta-side strong { display: block; color: #fff; font-size: 17px; margin-bottom: 10px; }
-
-  /* FOOTER */
-  footer { background: #fff; border-top: 1px solid var(--line); padding: 72px 0 40px; }
-  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; }
-  .foot-grid p { color: var(--muted); font-size: 15px; margin-top: 14px; max-width: 340px; }
-  .foot-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--ink); margin-bottom: 16px; }
-  .foot-col a, .foot-col span { display: block; font-size: 15px; color: var(--muted); margin-bottom: 10px; }
-  .foot-col a:hover { color: var(--ink); }
-  .legal {
-    margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
-    font-size: 13px; color: var(--muted);
-  }
-  .legal p { max-width: 720px; }
-
-  /* RESPONSIVE */
-  @media (max-width: 960px) {
-    section { padding: 72px 0; }
-    .nav-links { display: none; }
-    .hero-grid, .intro-grid, .why-grid, .results-grid, .cta-box { grid-template-columns: 1fr; gap: 40px; }
-    .hero-media { aspect-ratio: 16 / 11; }
-    .pillar-grid, .problem-grid { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr 1fr; }
-    .step { padding-bottom: 36px; }
-    .insights-box { grid-template-columns: 1fr; padding: 36px; }
-    .cta-box { padding: 56px 32px; }
-    .foot-grid { grid-template-columns: 1fr 1fr; }
-    .foot-grid > div:first-child { grid-column: 1 / -1; }
-  }
-  @media (max-width: 600px) {
-    .wrap { padding: 0 16px; }
-    .hero { padding: 56px 0 64px; }
-    .nav-cta .btn-ghost { display: none; }
-    .nav .btn { padding: 9px 16px; font-size: 13px; }
-    .hero-actions .btn { width: 100%; justify-content: center; }
-    .result-cards, .stats { grid-template-columns: 1fr; }
-    .steps { grid-template-columns: 1fr; }
-    .cta-box { padding: 44px 24px; border-radius: 22px; }
-    .cta .btn { width: 100%; justify-content: center; }
-    .foot-grid { grid-template-columns: 1fr; }
-    .problems-head { flex-direction: column; align-items: start; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- NAV -->
 <header class="nav">
   <div class="wrap">
-    <a href="#top" class="logo">
-      <span class="logo-mark">C</span>
-      Carroll Consulting
-    </a>
+    <a href="index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#insights">Insights</a>
-      <a href="#contact">Contact</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a href="#contact" class="btn btn-ghost">Contact</a>
-      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
+      <a href="contact.html" class="btn btn-ghost">Contact</a>
+      <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
     </div>
   </div>
 </header>
 
-<main id="top">
+<main>
 
 <!-- HERO -->
 <section class="hero">
@@ -276,12 +40,12 @@
       <p class="lead">Carroll Consulting helps growing organizations make smarter people decisions, strengthen their HR infrastructure, and reduce workplace risk.</p>
       <p class="lead" style="margin-top:-20px">We bring executive-level HR expertise to companies that need strategic guidance without immediately building a large internal HR leadership function.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">Book an Advisory Consultation</a>
-        <a href="#services" class="btn btn-ghost">Explore Our Services →</a>
+        <a href="contact.html" class="btn btn-primary">Book an Advisory Consultation</a>
+        <a href="services.html" class="btn btn-ghost">Explore Our Services →</a>
       </div>
     </div>
     <div class="hero-media" role="img" aria-label="Hero photo placeholder">
-      <div class="placeholder-note">Hero photo goes here. Replace this block with an <code>&lt;img&gt;</code> tag.</div>
+      <div class="placeholder-note">Hero photo goes here. Replace this block with an &lt;img&gt; tag.</div>
       <div class="hero-badge">
         <strong>11+ years of executive HR leadership</strong>
         <span>SPHR certified · Founder Imani Carroll</span>
@@ -291,13 +55,13 @@
 </section>
 
 <!-- INTRODUCTION -->
-<section id="about">
+<section>
   <div class="wrap intro-grid">
     <div>
       <p class="eyebrow">Introduction</p>
       <h2>Your company is growing. Your people strategy needs to grow with it.</h2>
     </div>
-    <div class="body">
+    <div class="body-copy">
       <p class="strong">Growth creates opportunity—but it also creates complexity.</p>
       <p>New employees. New managers. Organizational change. Performance challenges. Compliance requirements. Workplace investigations. Restructuring. Rapid growth can expose gaps in your people infrastructure long before leadership realizes they’re there.</p>
       <p>Carroll Consulting partners with founders, executives, and growing organizations to help them navigate those challenges with clarity and confidence.</p>
@@ -307,9 +71,9 @@
 </section>
 
 <!-- THREE PILLARS -->
-<section class="pillars" id="services">
+<section class="pillars">
   <div class="wrap">
-    <p class="eyebrow" style="color:#7fd0c9">Our Three Pillars</p>
+    <p class="eyebrow" style="color:var(--teal-light)">Our Three Pillars</p>
     <h2>People. Risk. Strategy.</h2>
     <div class="pillar-grid">
 
@@ -325,7 +89,7 @@
           <li>Performance Management</li>
           <li>Leadership &amp; Talent Strategy</li>
         </ul>
-        <a href="#contact" class="link">Explore People Advisory →</a>
+        <a href="services.html#people" class="link">Explore People Advisory →</a>
       </article>
 
       <article class="pillar">
@@ -341,7 +105,7 @@
           <li>Workplace Investigations</li>
           <li>Manager Risk &amp; Training</li>
         </ul>
-        <a href="#contact" class="link">Explore Workplace Risk →</a>
+        <a href="services.html#risk" class="link">Explore Workplace Risk →</a>
       </article>
 
       <article class="pillar">
@@ -356,7 +120,7 @@
           <li>Global People Operations</li>
           <li>HR Due Diligence</li>
         </ul>
-        <a href="#contact" class="link">Explore People Strategy →</a>
+        <a href="services.html#strategy" class="link">Explore People Strategy →</a>
       </article>
 
     </div>
@@ -378,44 +142,44 @@
       <article class="problem">
         <q>We’re growing faster than our HR infrastructure.</q>
         <p>We help build the policies, processes, systems, and people strategy required to support growth.</p>
-        <a href="#services" class="link">→ People Strategy</a>
+        <a href="services.html#strategy" class="link">→ People Strategy</a>
       </article>
 
       <article class="problem">
         <q>We’re dealing with a difficult employee situation.</q>
         <p>We provide structured guidance for complex employee relations, performance, investigation, and workplace decisions.</p>
-        <a href="#services" class="link">→ Workplace Risk &amp; Employee Relations</a>
+        <a href="services.html#risk" class="link">→ Workplace Risk &amp; Employee Relations</a>
       </article>
 
       <article class="problem">
         <q>Our managers aren’t equipped to lead.</q>
         <p>We help organizations strengthen manager capability, accountability, performance management, and leadership practices.</p>
-        <a href="#services" class="link">→ Leadership &amp; Talent Strategy</a>
+        <a href="services.html#people" class="link">→ Leadership &amp; Talent Strategy</a>
       </article>
 
       <article class="problem">
         <q>We need senior HR expertise, but we’re not ready for another executive hire.</q>
         <p>Get experienced HR leadership without immediately adding another full-time executive to your payroll.</p>
-        <a href="#services" class="link">→ Fractional HR Advisory</a>
+        <a href="services.html#engagement" class="link">→ Fractional HR Advisory</a>
       </article>
 
       <article class="problem">
         <q>We’re restructuring, scaling, or preparing for a transaction.</q>
         <p>We help leadership teams navigate organizational design, workforce planning, change, and people-related due diligence.</p>
-        <a href="#services" class="link">→ Organizational Strategy</a>
+        <a href="services.html#strategy" class="link">→ Organizational Strategy</a>
       </article>
 
       <article class="problem highlight">
         <q>Something else is going on?</q>
         <p>Tell us what’s happening and we’ll tell you whether we can help and what your next step could be.</p>
-        <a href="#contact" class="link">Book a consultation →</a>
+        <a href="contact.html" class="link">Book a consultation →</a>
       </article>
     </div>
   </div>
 </section>
 
 <!-- WHY CARROLL -->
-<section class="why" id="why">
+<section class="why">
   <div class="wrap why-grid">
     <div class="why-photo" role="img" aria-label="Founder photo placeholder">
       Founder photo (Imani Carroll) goes here.
@@ -423,30 +187,16 @@
     <div>
       <p class="eyebrow">Why Carroll Consulting?</p>
       <h2>Executive-Level HR Expertise. Built for Growing Companies.</h2>
-      <div class="body">
+      <div class="body-copy">
         <p>Carroll Consulting was founded by Imani Carroll, an experienced HR executive and strategic people leader with more than 11 years of progressive HR leadership experience.</p>
         <p>Throughout her career, Imani has partnered with executive leaders and organizations navigating growth, transformation, organizational change, compliance, talent strategy, and complex workplace challenges.</p>
         <p>Her experience spans both high-growth companies and established organizations, including executive HR leadership roles supporting global teams and go-to-market organizations.</p>
       </div>
-      <div class="stats">
-        <div class="stat">
-          <div class="big">11+ years</div>
-          <p class="label">Progressive HR leadership experience</p>
-        </div>
-        <div class="stat">
-          <div class="big">SPHR</div>
-          <p class="label">Senior-level HR certification</p>
-        </div>
-        <div class="stat">
-          <div class="big">Global</div>
-          <p class="label">Experience</p>
-          <p>HR strategy and business partnership across international organizations</p>
-        </div>
-        <div class="stat">
-          <div class="big">Executive</div>
-          <p class="label">Partnership</p>
-          <p>Experience advising senior executives on complex people decisions</p>
-        </div>
+      <div class="stats" style="margin-top:36px">
+        <div class="stat"><div class="big">11+ years</div><p class="label">Progressive HR leadership experience</p></div>
+        <div class="stat"><div class="big">SPHR</div><p class="label">Senior-level HR certification</p></div>
+        <div class="stat"><div class="big">Global</div><p class="label">Experience</p><p>HR strategy and business partnership across international organizations</p></div>
+        <div class="stat"><div class="big">Executive</div><p class="label">Partnership</p><p>Experience advising senior executives on complex people decisions</p></div>
       </div>
     </div>
   </div>
@@ -455,31 +205,15 @@
 <!-- OUR APPROACH -->
 <section>
   <div class="wrap">
-    <div class="approach-head">
+    <div class="section-head">
       <p class="eyebrow">Our Approach</p>
       <h2>Assess. Advise. Build. Partner.</h2>
     </div>
     <div class="steps">
-      <div class="step">
-        <div class="n">01 — ASSESS</div>
-        <h3>Assess</h3>
-        <p>We start by understanding your organization, your business goals, and the people challenges you’re facing.</p>
-      </div>
-      <div class="step">
-        <div class="n">02 — ADVISE</div>
-        <h3>Advise</h3>
-        <p>We identify risks, opportunities, and strategic priorities and provide clear recommendations to leadership.</p>
-      </div>
-      <div class="step">
-        <div class="n">03 — BUILD</div>
-        <h3>Build</h3>
-        <p>We develop the policies, programs, processes, structures, and strategies your organization needs.</p>
-      </div>
-      <div class="step">
-        <div class="n">04 — PARTNER</div>
-        <h3>Partner</h3>
-        <p>We work alongside your leadership team to implement solutions, navigate change, and continuously improve your people strategy.</p>
-      </div>
+      <div class="step"><div class="n">01 — ASSESS</div><h3>Assess</h3><p>We start by understanding your organization, your business goals, and the people challenges you’re facing.</p></div>
+      <div class="step"><div class="n">02 — ADVISE</div><h3>Advise</h3><p>We identify risks, opportunities, and strategic priorities and provide clear recommendations to leadership.</p></div>
+      <div class="step"><div class="n">03 — BUILD</div><h3>Build</h3><p>We develop the policies, programs, processes, structures, and strategies your organization needs.</p></div>
+      <div class="step"><div class="n">04 — PARTNER</div><h3>Partner</h3><p>We work alongside your leadership team to implement solutions, navigate change, and continuously improve your people strategy.</p></div>
     </div>
   </div>
 </section>
@@ -493,32 +227,17 @@
       <p class="lead">Our work spans some of the most consequential areas of people management, including:</p>
     </div>
     <div class="result-cards">
-      <div class="result">
-        <h3>HR Compliance &amp; Risk</h3>
-        <p>Identifying classification, policy, process, and workplace-risk issues before they become larger organizational problems.</p>
-      </div>
-      <div class="result">
-        <h3>People Infrastructure</h3>
-        <p>Building HR systems and processes that allow growing organizations to scale more effectively.</p>
-      </div>
-      <div class="result">
-        <h3>Organizational Strategy</h3>
-        <p>Helping leadership teams navigate organizational design, restructuring, workforce planning, and change.</p>
-      </div>
-      <div class="result">
-        <h3>Leadership &amp; Talent</h3>
-        <p>Strengthening performance management, leadership capability, talent strategy, and employee experience.</p>
-      </div>
-      <div class="result wide">
-        <h3>Global People Strategy</h3>
-        <p>Supporting organizations operating across multiple countries, functions, and business environments.</p>
-      </div>
+      <div class="result"><h3>HR Compliance &amp; Risk</h3><p>Identifying classification, policy, process, and workplace-risk issues before they become larger organizational problems.</p></div>
+      <div class="result"><h3>People Infrastructure</h3><p>Building HR systems and processes that allow growing organizations to scale more effectively.</p></div>
+      <div class="result"><h3>Organizational Strategy</h3><p>Helping leadership teams navigate organizational design, restructuring, workforce planning, and change.</p></div>
+      <div class="result"><h3>Leadership &amp; Talent</h3><p>Strengthening performance management, leadership capability, talent strategy, and employee experience.</p></div>
+      <div class="result wide"><h3>Global People Strategy</h3><p>Supporting organizations operating across multiple countries, functions, and business environments.</p></div>
     </div>
   </div>
 </section>
 
-<!-- INSIGHTS -->
-<section id="insights" style="padding-top:0">
+<!-- INSIGHTS TEASER -->
+<section style="padding-top:0">
   <div class="wrap">
     <div class="insights-box">
       <div>
@@ -526,13 +245,13 @@
         <h2>Better People Decisions Start With Better Information.</h2>
         <p>The workplace is changing quickly. Leaders need practical guidance—not HR jargon. Explore insights on workplace risk, people strategy, leadership, compliance, organizational growth, and the decisions leaders face as their companies evolve.</p>
       </div>
-      <a href="#insights" class="btn btn-ghost">Explore Insights →</a>
+      <a href="insights.html" class="btn btn-ghost">Explore Insights →</a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta" id="contact" style="padding-top:96px">
+<section class="cta">
   <div class="wrap">
     <div class="cta-box">
       <div>
@@ -540,8 +259,8 @@
         <h2>Your People Challenges Are Business Challenges.</h2>
         <p>Whether you’re preparing for growth, navigating a difficult employee situation, building your HR infrastructure, or simply trying to determine what your organization needs next, Carroll Consulting can help.</p>
         <div class="hero-actions">
-          <a href="#" class="btn btn-light">Book an Advisory Consultation</a>
-          <a href="#services" class="btn btn-outline-light">Explore Our Services</a>
+          <a href="contact.html" class="btn btn-light">Book an Advisory Consultation</a>
+          <a href="services.html" class="btn btn-outline-light">Explore Our Services</a>
         </div>
       </div>
       <aside class="cta-side">
@@ -554,27 +273,23 @@
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="#top" class="logo">
-          <span class="logo-mark">C</span>
-          Carroll Consulting
-        </a>
+        <a href="index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
         <p>PEOPLE × RISK × STRATEGY. Strategic people advisory for growing companies.</p>
       </div>
       <div class="foot-col">
         <h4>Company</h4>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#insights">Insights</a>
-        <a href="#contact">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
-        <a href="#contact">Book an Advisory Consultation</a>
+        <a href="contact.html">Book an Advisory Consultation</a>
         <span>Email: [add email]</span>
       </div>
     </div>
