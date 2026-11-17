@@ -15,12 +15,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
+<link rel="preload" as="image" href="../assets/img/contact-hero.jpg" media="(min-width: 701px)">
+<link rel="preload" as="image" href="../assets/img/contact-hero-sm.jpg" media="(max-width: 700px)">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
 <script src="../js/site.js" defer></script>
 </head>
-<body>
+<body class="centered-page">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -46,7 +48,7 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="page-hero">
+<section class="page-hero photo-hero hero-contact">
   <div class="wrap">
     <p class="eyebrow">Start the Conversation</p>
     <h1>Let’s Talk About Your People Strategy.</h1>
@@ -56,7 +58,7 @@
 </section>
 
 <!-- FORM + SIDE -->
-<section class="pt-0" id="book">
+<section id="book">
   <div class="wrap contact-grid">
 
     <div class="form-card">
@@ -157,33 +159,38 @@
 </section>
 
 <!-- WHAT TO EXPECT -->
-<section class="service-block alt">
+<section class="approach">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">What to Expect</p>
       <h2>A Thoughtful First Conversation.</h2>
     </div>
-    <div class="expect-steps">
-      <div class="expect">
-        <div class="n">01 — CONNECT</div>
-        <h3>Connect</h3>
-        <p>We’ll learn more about your organization and what you’re trying to solve.</p>
-      </div>
-      <div class="expect">
-        <div class="n">02 — ASSESS</div>
-        <h3>Assess</h3>
-        <p>We’ll determine whether your needs align with our expertise and engagement model.</p>
-      </div>
-      <div class="expect">
-        <div class="n">03 — RECOMMEND</div>
-        <h3>Recommend</h3>
-        <p>If we’re a fit, we’ll recommend the most appropriate way to work together.</p>
-      </div>
-    </div>
-    <p class="expect-foot">No unnecessary sales pitch. No one-size-fits-all package.</p>
+    <ol class="journey journey-3">
+      <li class="journey-step">
+        <span class="journey-node" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <div class="journey-card">
+          <h3>Connect</h3>
+          <p>We’ll learn more about your organization and what you’re trying to solve.</p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="journey-node" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4.2-4.2"/></svg></span>
+        <div class="journey-card">
+          <h3>Assess</h3>
+          <p>We’ll determine whether your needs align with our expertise and engagement model.</p>
+        </div>
+      </li>
+      <li class="journey-step">
+        <span class="journey-node" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <div class="journey-card">
+          <h3>Recommend</h3>
+          <p>If we’re a fit, we’ll recommend the most appropriate way to work together.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="journey-loop">No unnecessary sales pitch. No one-size-fits-all package.</p>
   </div>
 </section>
-
 </main>
 
 <footer>

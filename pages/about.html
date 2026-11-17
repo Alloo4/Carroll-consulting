@@ -15,12 +15,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
+<link rel="preload" as="image" href="../assets/img/about-hero.jpg" media="(min-width: 701px)">
+<link rel="preload" as="image" href="../assets/img/about-hero-sm.jpg" media="(max-width: 700px)">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
 <script src="../js/site.js" defer></script>
 </head>
-<body>
+<body class="centered-page">
 
 <a class="skip-link" href="#main">Skip to main content</a>
 
@@ -46,7 +48,7 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="page-hero">
+<section class="page-hero photo-hero hero-about">
   <div class="wrap">
     <p class="eyebrow">About Carroll Consulting</p>
     <h1>People Strategy With an Executive Perspective.</h1>
@@ -56,12 +58,8 @@
 </section>
 
 <!-- FOUNDER -->
-<section class="pt-0">
+<section>
   <div class="wrap founder">
-    <!-- Replace with <img src="..." alt="Imani Carroll, Founder of Carroll Consulting" width="..." height="..."> when the founder photo is ready. -->
-    <div class="founder-photo" aria-hidden="true">
-      <span class="placeholder-initials">IC</span>
-    </div>
     <div>
       <p class="eyebrow">Meet Imani Carroll</p>
       <h2>Imani Carroll</h2>
