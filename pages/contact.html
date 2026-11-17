@@ -11,7 +11,9 @@
 <meta property="og:description" content="Book an advisory consultation with Carroll Consulting to talk about your people strategy, workplace risk, or HR infrastructure.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#13213f">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313213f'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Inter,Arial,sans-serif' font-size='38' font-weight='800' fill='%23fff'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/favicon-192.png">
+<link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
@@ -28,7 +30,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a href="../index.html" class="logo" aria-label="Carroll Consulting home"><span class="logo-mark">C</span><span class="logo-text">Carroll Consulting</span></a>
+    <a href="../index.html" class="logo" aria-label="Carroll Consulting home"><img class="logo-full" src="../assets/img/logo.png" alt="" width="454" height="142"><img class="logo-icon" src="../assets/img/logo-mark.png" alt="" width="162" height="142"></a>
     <nav class="nav-links" id="primary-nav" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
@@ -66,7 +68,7 @@
       <p>Tell us a little about your organization and what you’re navigating. We’ll use the initial conversation to understand your needs, determine where Carroll Consulting can add value, and recommend an appropriate next step.</p>
 
       <!-- Form backend: set data-endpoint to your form service URL (e.g. Formspree, Basin, Netlify Forms) and action to the same URL. Until then, submissions show a "not connected yet" notice instead of silently reloading. -->
-      <form action="#" method="post" data-contact-form data-endpoint="">
+      <form action="#" method="post" data-contact-form data-endpoint="" data-email="imanic@carrollconsulting.services">
         <p class="form-hint">Required fields are marked with an asterisk.</p>
         <div class="form-grid">
           <div class="field">
@@ -84,6 +86,10 @@
           <div class="field">
             <label for="company">Company <span class="req" aria-hidden="true">*</span></label>
             <input id="company" name="company" type="text" autocomplete="organization" required>
+          </div>
+          <div class="field full">
+            <label for="phone">Phone Number <span class="optional">(optional)</span></label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel">
           </div>
           <div class="field full">
             <label for="size">Company Size <span class="req" aria-hidden="true">*</span></label>
@@ -147,7 +153,8 @@
       <div class="side-card">
         <h3>Prefer to reach out directly?</h3>
         <p>Email us and we’ll get back to you.</p>
-        <p class="contact-line">[add email]</p>
+        <p class="contact-line"><a href="mailto:imanic@carrollconsulting.services">imanic@carrollconsulting.services</a></p>
+        <p class="contact-line">Based in South Amboy, New Jersey</p>
       </div>
       <div class="side-card">
         <h3>A note on legal services</h3>
@@ -197,7 +204,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a href="../index.html" class="logo"><span class="logo-mark">C</span>Carroll Consulting</a>
+        <a href="../index.html" class="logo" aria-label="Carroll Consulting home"><img class="logo-full" src="../assets/img/logo.png" alt="" width="454" height="142" loading="lazy"></a>
         <p>PEOPLE × RISK × STRATEGY. Strategic people advisory for growing companies.</p>
       </div>
       <nav class="foot-col" aria-label="Footer">
@@ -210,7 +217,8 @@
       <div class="foot-col">
         <h4>Contact</h4>
         <a href="contact.html">Book an Advisory Consultation</a>
-        <span>Email: [add email]</span>
+        <a href="mailto:imanic@carrollconsulting.services">imanic@carrollconsulting.services</a>
+        <span>South Amboy, New Jersey</span>
       </div>
     </div>
     <div class="legal">

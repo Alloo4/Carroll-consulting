@@ -68,7 +68,31 @@
       e.preventDefault();
 
       if (!endpoint) {
-        show("error", "Our online form isn’t connected yet. Please reach out by email instead; your details have not been sent.");
+        // No form service connected yet: open the visitor's email app with the
+        // request pre-filled, addressed to Carroll Consulting.
+        var to = (form.getAttribute("data-email") || "").trim();
+        if (!to) {
+          show("error", "Our online form isn’t connected yet. Please reach out by email instead; your details have not been sent.");
+          return;
+        }
+        var data = new FormData(form);
+        var val = function (name) { return (data.get(name) || "").toString().trim(); };
+        var topics = data.getAll("topics").join(", ");
+        var lines = [
+          "Name: " + val("first_name") + " " + val("last_name"),
+          "Email: " + val("email"),
+          "Phone: " + (val("phone") || "Not provided"),
+          "Company: " + val("company"),
+          "Company size: " + val("company_size"),
+          "Help needed with: " + (topics || "Not specified"),
+          "How they heard about us: " + (val("source") || "Not specified"),
+          "",
+          "About the organization or challenge:",
+          val("message") || "Not provided"
+        ];
+        var subject = "Consultation request from " + val("first_name") + " " + val("last_name") + " (" + val("company") + ")";
+        window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        show("success", "Your email app should now open with your request filled in. Press send there to reach us. If nothing opened, email " + to + " directly.");
         return;
       }
 
@@ -83,7 +107,7 @@
         .then(function (res) {
           if (!res.ok) throw new Error("Request failed: " + res.status);
           form.reset();
-          show("success", "Thank you. We’ve received your request and will be in touch shortly.");
+          show("success", "Thank you for reaching out. We’ll be in touch soon to schedule a thoughtful conversation about your organization’s needs.");
         })
         .catch(function () {
           show("error", "Something went wrong and your request was not sent. Please try again or email us directly.");
