@@ -182,7 +182,6 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .home-page .pillar li::before { position: static; display: inline-block; margin-right: 8px; }
 .home-page .problems-head { flex-direction: column; align-items: center; }
 .home-page .problem { align-items: center; }
-.home-page .step { padding-right: 18px; padding-left: 18px; }
 .home-page .insights-box > a { justify-self: center; }
 .home-page .cta-box .hero-actions { justify-content: center; }
 
@@ -214,7 +213,6 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .home-page .cta-box .hero-actions { justify-content: center; }
 .home-page .cta-side { max-width: 620px; width: 100%; }
 .home-page .pillar .link { align-self: center; justify-content: center; }
-.home-page .steps .step { padding-left: 18px; padding-right: 18px; }
 .home-page .pillars-cta { margin-top: 48px; text-align: center; }
 .home-page .pillars-cta .btn { font-size: 16px; padding: 16px 30px; }
 
@@ -277,11 +275,55 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .section-head h2 { margin-top: 0; }
 .section-head .lead { margin-top: 16px; }
 .section-head-tight { margin-bottom: 40px; }
-.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 2px solid var(--navy); }
-.step { padding: 32px 28px 0 0; }
-.step .n { font-size: 14px; font-weight: 700; color: var(--teal); margin-bottom: 18px; letter-spacing: .08em; }
-.step h3 { font-size: 22px; margin-bottom: 12px; }
-.step p { color: var(--muted); font-size: 15px; }
+/* OUR APPROACH: connected four-stage journey on a dark band */
+.approach {
+  position: relative; overflow: hidden; color: #fff;
+  background:
+    radial-gradient(900px 420px at 85% -10%, rgba(127,208,201,.18), transparent 60%),
+    radial-gradient(700px 380px at 0% 110%, rgba(31,110,106,.35), transparent 60%),
+    linear-gradient(160deg, var(--navy) 0%, #172a4d 100%);
+}
+.approach .eyebrow { color: var(--teal-light); }
+.approach h2 { color: #fff; }
+.approach .section-head .lead { color: rgba(255,255,255,.78); max-width: 640px; }
+.journey { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; position: relative; }
+/* The track that links the four nodes */
+.journey::before {
+  content: ""; position: absolute; top: 34px; left: 12.5%; right: 12.5%; height: 2px;
+  background: linear-gradient(90deg, var(--teal-light), rgba(127,208,201,.25) 50%, var(--teal-light));
+}
+.journey-step { position: relative; display: flex; flex-direction: column; align-items: center; }
+.journey-node {
+  position: relative; z-index: 1; width: 68px; height: 68px; border-radius: 50%;
+  display: grid; place-items: center; color: var(--teal-light);
+  background: var(--navy); border: 2px solid var(--teal-light);
+  box-shadow: 0 0 0 8px rgba(127,208,201,.08);
+  transition: background .25s ease, color .25s ease, transform .25s ease;
+}
+.journey-card {
+  position: relative; overflow: hidden; margin-top: 28px; width: 100%; flex: 1;
+  padding: 32px 24px 30px; border-radius: 20px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.journey-num {
+  position: absolute; top: -18px; right: 10px; font-size: 96px; font-weight: 800; line-height: 1;
+  letter-spacing: -0.05em; color: rgba(255,255,255,.06); pointer-events: none;
+}
+.journey-kicker { font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 10px; }
+.journey-card h3 { font-size: 24px; color: #fff; margin-bottom: 12px; }
+.journey-card p:last-child { color: rgba(255,255,255,.75); font-size: 15px; }
+.journey-step:hover .journey-card { transform: translateY(-6px); background: rgba(255,255,255,.09); border-color: rgba(127,208,201,.5); }
+.journey-step:hover .journey-node { background: var(--teal-light); color: var(--navy); transform: scale(1.06); }
+.journey-loop {
+  margin-top: 44px; display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 15px; font-weight: 600; color: rgba(255,255,255,.8);
+}
+.journey-loop svg { color: var(--teal-light); flex: none; }
+@media (prefers-reduced-motion: reduce) {
+  .journey-card, .journey-node { transition: none; }
+  .journey-step:hover .journey-card, .journey-step:hover .journey-node { transform: none; }
+}
 
 /* RESULTS */
 .results { background: var(--bg); }
@@ -494,8 +536,8 @@ footer { background: #fff; border-top: 1px solid var(--line); padding: 72px 0 40
   .pillar-grid, .problem-grid, .creds-grid, .philosophy-grid, .article-list { grid-template-columns: 1fr; }
   .engage-grid { grid-template-columns: 1fr 1fr; }
   .service-grid, .expect-steps { grid-template-columns: 1fr; }
-  .steps { grid-template-columns: 1fr 1fr; }
-  .step { padding-bottom: 36px; }
+  .journey { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+  .journey::before { display: none; }
   .insights-box { grid-template-columns: 1fr; padding: 36px; }
   .cta-box { padding: 56px 32px; }
   .beyond { padding: 52px 36px; }
@@ -510,13 +552,16 @@ footer { background: #fff; border-top: 1px solid var(--line); padding: 72px 0 40
   .nav .btn { padding: 9px 16px; font-size: 13px; }
   .nav-links { padding-left: 16px; padding-right: 16px; }
   .trust-strip { flex-direction: column; align-items: center; gap: 10px; }
+  .journey { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .journey-loop { display: block; text-align: center; }
+  .journey-loop svg { display: inline-block; vertical-align: -3px; margin-right: 6px; }
   .jump-nav a { flex: 1 1 calc(50% - 10px); justify-content: center; }
 }
 @media (max-width: 420px) {
   /* Wordmark collapses to the mark so the CTA and menu button still fit. */
   .nav .logo-text { display: none; }
   .hero-actions .btn { width: 100%; justify-content: center; }
-  .result-cards, .stats, .steps, .engage-grid, .form-grid, .checks { grid-template-columns: 1fr; }
+  .result-cards, .stats, .journey, .engage-grid, .form-grid, .checks { grid-template-columns: 1fr; }
   .cta-box { padding: 44px 24px; border-radius: 22px; }
   .cta .btn, .form-submit .btn { width: 100%; justify-content: center; }
   .foot-grid { grid-template-columns: 1fr; }
