@@ -15,6 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="../css/styles.css">
+<link rel="preload" as="image" href="../assets/img/services-hero.jpg" media="(min-width: 701px)">
+<link rel="preload" as="image" href="../assets/img/services-hero-sm.jpg" media="(max-width: 700px)">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
@@ -46,9 +48,9 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="page-hero">
+<section class="page-hero services-hero">
   <div class="wrap">
-    <p class="eyebrow">People × Risk × Strategy</p>
+    <p class="eyebrow">Our Services · People × Risk × Strategy</p>
     <h1>Strategic HR Advisory for Organizations Ready to Grow Smarter</h1>
     <p class="lead">Carroll Consulting provides executive-level people advisory services to growing organizations that need more than traditional HR support.</p>
     <p class="lead">We help leaders build stronger organizations, reduce workplace risk, and create people strategies aligned with business growth.</p>
@@ -57,11 +59,10 @@
       <a href="#engagement" class="btn btn-ghost">See Engagement Models</a>
     </div>
     <nav class="jump-nav" aria-label="On this page">
-      <span class="jump-label">Jump to</span>
-      <a href="#people">01 — People</a>
-      <a href="#risk">02 — Risk</a>
-      <a href="#strategy">03 — Strategy</a>
-      <a href="#engagement">Engagement Models</a>
+      <a href="#people"><span class="jump-title">People</span><span class="jump-desc">Leadership, talent &amp; org design</span></a>
+      <a href="#risk"><span class="jump-title">Risk</span><span class="jump-desc">Compliance, relations &amp; investigations</span></a>
+      <a href="#strategy"><span class="jump-title">Strategy</span><span class="jump-desc">Infrastructure, planning &amp; change</span></a>
+      <a href="#engagement"><span class="jump-title">Engagement</span><span class="jump-desc">Flexible ways to work together</span></a>
     </nav>
   </div>
 </section>
@@ -71,7 +72,7 @@
   <div class="wrap">
     <div class="service-head">
       <div>
-        <p class="eyebrow">01 — People</p>
+        <p class="eyebrow">People</p>
         <h2>Build a Stronger Organization.</h2>
         <p class="lead">Your people strategy should be intentional—not reactive.</p>
       </div>
@@ -113,7 +114,7 @@
   <div class="wrap">
     <div class="service-head">
       <div>
-        <p class="eyebrow">02 — Risk</p>
+        <p class="eyebrow">Risk</p>
         <h2>Reduce Workplace Risk Before It Becomes a Business Problem.</h2>
       </div>
       <div class="body-copy">
@@ -159,7 +160,7 @@
   <div class="wrap">
     <div class="service-head">
       <div>
-        <p class="eyebrow">03 — Strategy</p>
+        <p class="eyebrow">Strategy</p>
         <h2>Build the Infrastructure Required to Scale.</h2>
         <p class="lead">Growth without infrastructure creates chaos.</p>
       </div>
