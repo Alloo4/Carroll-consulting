@@ -67,8 +67,9 @@
       <h2>Book an Advisory Consultation</h2>
       <p>Tell us a little about your organization and what you’re navigating. We’ll use the initial conversation to understand your needs, determine where Carroll Consulting can add value, and recommend an appropriate next step.</p>
 
-      <!-- Form backend: set data-endpoint to your form service URL (e.g. Formspree, Basin, Netlify Forms) and action to the same URL. Until then, submissions show a "not connected yet" notice instead of silently reloading. -->
-      <form action="#" method="post" data-contact-form data-endpoint="" data-email="imanic@carrollconsulting.services">
+      <!-- Form backend: FormSubmit (formsubmit.co) emails each request to data-email. To switch services, change data-endpoint; if it is left empty the form opens the visitor's email app instead. -->
+      <form action="#" method="post" data-contact-form data-endpoint="https://formsubmit.co/ajax/imanic@carrollconsulting.services" data-email="imanic@carrollconsulting.services">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <p class="form-hint">Required fields are marked with an asterisk.</p>
         <div class="form-grid">
           <div class="field">

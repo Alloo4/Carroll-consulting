@@ -63,54 +63,79 @@
       submitBtn.textContent = busy ? "Sending…" : idleLabel;
     };
 
+    var to = (form.getAttribute("data-email") || "").trim();
+
+    // Collect the answers once, with readable labels for the email Imani receives.
+    var collect = function () {
+      var data = new FormData(form);
+      var val = function (name) { return (data.get(name) || "").toString().trim(); };
+      var name = val("first_name") + " " + val("last_name");
+      return {
+        subject: "Consultation request from " + name + " (" + val("company") + ")",
+        fields: {
+          "Name": name,
+          "Email": val("email"),
+          "Phone": val("phone") || "Not provided",
+          "Company": val("company"),
+          "Company size": val("company_size") || "Not specified",
+          "Help needed with": data.getAll("topics").join(", ") || "Not specified",
+          "How they heard about us": val("source") || "Not specified",
+          "About the organization or challenge": val("message") || "Not provided"
+        },
+        replyTo: val("email"),
+        honey: val("_honey")
+      };
+    };
+
+    // Backup: open the visitor's email app with the request filled in.
+    var openEmailApp = function (info) {
+      var lines = Object.keys(info.fields).map(function (k) { return k + ": " + info.fields[k]; });
+      window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent(info.subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+    };
+
     form.addEventListener("submit", function (e) {
       // Native validation has already run; only valid forms reach this handler.
       e.preventDefault();
+      var info = collect();
 
       if (!endpoint) {
-        // No form service connected yet: open the visitor's email app with the
-        // request pre-filled, addressed to Carroll Consulting.
-        var to = (form.getAttribute("data-email") || "").trim();
         if (!to) {
           show("error", "Our online form isn’t connected yet. Please reach out by email instead; your details have not been sent.");
           return;
         }
-        var data = new FormData(form);
-        var val = function (name) { return (data.get(name) || "").toString().trim(); };
-        var topics = data.getAll("topics").join(", ");
-        var lines = [
-          "Name: " + val("first_name") + " " + val("last_name"),
-          "Email: " + val("email"),
-          "Phone: " + (val("phone") || "Not provided"),
-          "Company: " + val("company"),
-          "Company size: " + val("company_size"),
-          "Help needed with: " + (topics || "Not specified"),
-          "How they heard about us: " + (val("source") || "Not specified"),
-          "",
-          "About the organization or challenge:",
-          val("message") || "Not provided"
-        ];
-        var subject = "Consultation request from " + val("first_name") + " " + val("last_name") + " (" + val("company") + ")";
-        window.location.href = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        openEmailApp(info);
         show("success", "Your email app should now open with your request filled in. Press send there to reach us. If nothing opened, email " + to + " directly.");
         return;
       }
+
+      var payload = {};
+      Object.keys(info.fields).forEach(function (k) { payload[k] = info.fields[k]; });
+      payload._subject = info.subject;
+      payload._replyto = info.replyTo;
+      payload._template = "table";
+      payload._captcha = "false";
+      payload._honey = info.honey;
 
       setBusy(true);
       if (status) status.hidden = true;
 
       fetch(endpoint, {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
       })
         .then(function (res) {
-          if (!res.ok) throw new Error("Request failed: " + res.status);
+          return res.json().catch(function () { return {}; }).then(function (json) {
+            if (!res.ok || String(json.success) === "false") throw new Error(json.message || ("Request failed: " + res.status));
+          });
+        })
+        .then(function () {
           form.reset();
           show("success", "Thank you for reaching out. We’ll be in touch soon to schedule a thoughtful conversation about your organization’s needs.");
         })
         .catch(function () {
-          show("error", "Something went wrong and your request was not sent. Please try again or email us directly.");
+          show("error", "We couldn’t send your request just now, so we’ve opened your email app with it filled in instead. If nothing opened, please email " + (to || "us") + " directly.");
+          if (to) openEmailApp(info);
         })
         .then(function () { setBusy(false); });
     });
