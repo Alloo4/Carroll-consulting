@@ -451,6 +451,10 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
   aspect-ratio: 4 / 5; display: grid; place-items: center; color: #55627a; text-align: center; padding: 24px; font-size: 14px;
   position: sticky; top: 100px;
 }
+.founder-portrait {
+  display: block; width: 300px; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%;
+  margin: 0 auto 36px; border-radius: 24px; box-shadow: 0 24px 60px rgba(19,33,63,.18);
+}
 .founder h2 { margin-bottom: 8px; }
 .founder .role { font-size: 16px; font-weight: 600; color: var(--teal); margin-bottom: 26px; }
 .founder-sub { margin-top: 36px; font-size: 18px; color: var(--navy); }
@@ -465,6 +469,7 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .cred .label { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
 .cred h3 { font-size: 19px; margin-bottom: 8px; color: var(--navy); }
 .cred p { color: var(--muted); font-size: 15px; }
+.cred-badge img { display: block; width: 140px; height: 140px; margin: 0 auto 18px; }
 .philosophy-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .philo { background: #fff; border-radius: var(--radius); padding: 32px; border: 1px solid var(--line); }
 .philo h3 { font-size: 15px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
