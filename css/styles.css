@@ -451,9 +451,10 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
   aspect-ratio: 4 / 5; display: grid; place-items: center; color: #55627a; text-align: center; padding: 24px; font-size: 14px;
   position: sticky; top: 100px;
 }
+.founder-media { position: sticky; top: 104px; }
 .founder-portrait {
-  display: block; width: 300px; max-width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%;
-  margin: 0 auto 36px; border-radius: 24px; box-shadow: 0 24px 60px rgba(19,33,63,.18);
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 25%;
+  border-radius: 24px; box-shadow: 0 24px 60px rgba(19,33,63,.18);
 }
 .founder h2 { margin-bottom: 8px; }
 .founder .role { font-size: 16px; font-weight: 600; color: var(--teal); margin-bottom: 26px; }
@@ -562,9 +563,8 @@ h3 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
 .centered-page .legal-note { grid-template-columns: 1fr; gap: 12px; text-align: center; }
 .centered-page .legal-note p { max-width: 760px; margin-left: auto; margin-right: auto; }
 /* About */
-.centered-page .founder { grid-template-columns: 1fr; gap: 0; max-width: 860px; margin-left: auto; margin-right: auto; text-align: center; }
-.centered-page .founder .body-copy { max-width: 760px; margin-left: auto; margin-right: auto; }
-.centered-page .tag-list { justify-content: center; }
+/* Founder: photo on one side, bio on the other */
+.centered-page .founder { grid-template-columns: 5fr 7fr; gap: 64px; max-width: 1120px; margin-left: auto; margin-right: auto; text-align: left; }
 .centered-page .cred, .centered-page .philo { text-align: center; }
 .centered-page .split-2 { grid-template-columns: 1fr; gap: 24px; max-width: 760px; margin-left: auto; margin-right: auto; text-align: center; }
 .centered-page .silo-list { justify-items: center; }
@@ -619,6 +619,10 @@ footer .logo-full { height: 56px; }
   .featured, .contact-grid, .legal-note { grid-template-columns: 1fr; gap: 40px; }
   .hero-media { aspect-ratio: 16 / 11; }
   .founder-photo { position: static; aspect-ratio: 16 / 11; }
+  .centered-page .founder { grid-template-columns: 1fr; gap: 36px; text-align: center; }
+  .founder-media { position: static; }
+  .founder-portrait { width: 300px; max-width: 100%; margin: 0 auto; }
+  .centered-page .founder .tag-list { justify-content: center; }
   .pillar-grid, .problem-grid, .creds-grid, .philosophy-grid, .article-list { grid-template-columns: 1fr; }
   .engage-grid { grid-template-columns: 1fr 1fr; }
   .service-grid, .expect-steps { grid-template-columns: 1fr; }
